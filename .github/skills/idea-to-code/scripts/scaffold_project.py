@@ -7,7 +7,8 @@ def main():
 
     arg = sys.argv[1]
     try:
-        with open(arg, "r", encoding="utf-8") as f:
+        # Use utf-8-sig to tolerate a BOM if present in the JSON file
+        with open(arg, "r", encoding="utf-8-sig") as f:
             data = json.load(f)
     except:
         data = json.loads(arg)

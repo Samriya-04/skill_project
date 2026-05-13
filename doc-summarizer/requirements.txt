@@ -1,0 +1,1 @@
+transformers\ntorch\nnltk\nPyPDF2\ntqdm\n

@@ -1,0 +1,26 @@
+{
+  "title": "ZeroDivisionError in divide()",
+  "author": "Aman Samriya",
+  "symptom": "The function divide(a, b) crashes when b = 0.",
+  "root_cause": "No validation before dividing; Python raises ZeroDivisionError.",
+  "reasoning": [
+    "b was passed as 0",
+    "Python evaluates a / b -> raises exception",
+    "No try/except or pre-check exists",
+    "No fallback behavior implemented"
+  ],
+  "code_before": "def divide(a, b):\n    return a / b\n\nprint(divide(10, 0))",
+  "code_after": "def divide(a, b):\n    if b == 0:\n        print(\"Cannot divide by zero\")\n        return None\n    return a / b\n\nprint(divide(10, 0))",
+  "tests": "def test_divide():\n    assert divide(10, 2) == 5\n    assert divide(10, 0) is None\n    assert divide(0, 5) == 0",
+  "prevention": [
+    "Validate inputs before math operations",
+    "Use try/except for unpredictable inputs",
+    "Add unit tests for edge cases",
+    "Return safe defaults or raise custom exceptions"
+  ],
+  "severity": "Medium",
+  "impact": "Program crash when invalid input is provided",
+  "fix_complexity": "Low",
+  "priority": "High",
+  "summary": "Adding input validation and graceful fallback prevents crashes and improves reliability."
+}
