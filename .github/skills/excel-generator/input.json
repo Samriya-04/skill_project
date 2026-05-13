@@ -1,0 +1,5 @@
+{
+  "file_name": "sample.xlsx",
+  "columns": ["Name", "Age", "Department"],
+  "rows": [["Alice", 30, "HR"], ["Bob", 28, "Engineering"], ["Charlie", 25, "Sales"]]
+}
