@@ -1,0 +1,42 @@
+{
+  "title": "Recursive Fibonacci Function",
+  "language": "Python",
+  "author": "Aman Samriya",
+  "original_code": "def fib(n):\n    if n <= 1:\n        return n\n    return fib(n-1) + fib(n-2)",
+  "summary_layman": "This function calculates a number from the Fibonacci sequence, where each number is the sum of the previous two numbers (0, 1, 1, 2, 3, 5, 8, ...).",
+  "step_by_step": [
+    "Function fib takes a number n as input",
+    "If n is 0 or 1, return n directly (base case)",
+    "Otherwise, call fib(n-1) and fib(n-2)",
+    "Return the sum of those two recursive results"
+  ],
+  "analogy": "Imagine asking two younger siblings to tell you a number, and they ask their younger siblings, until someone knows the answer directly.",
+  "inputs_outputs": [
+    { "input": "n=0", "output": "0" },
+    { "input": "n=1", "output": "1" },
+    { "input": "n=5", "output": "5" },
+    { "input": "n=10", "output": "55" }
+  ],
+  "what_it_delivers": "Computes the Nth Fibonacci number using simple recursion. Useful for teaching recursion concepts.",
+  "edge_cases": [
+    "Negative numbers are not handled",
+    "Very large n causes deep recursion and slowness",
+    "Stack overflow risk for n > ~990"
+  ],
+  "strengths": [
+    "Very easy to read",
+    "Mirrors mathematical definition",
+    "Great for teaching recursion"
+  ],
+  "weaknesses": [
+    "Exponential time complexity O(2^n)",
+    "Recomputes same values many times",
+    "Not suitable for production"
+  ],
+  "improvements": [
+    "Use memoization with a cache",
+    "Convert to iterative loop",
+    "Add input validation"
+  ],
+  "summary_final": "A clean but inefficient recursive Fibonacci implementation, ideal for learning but unsuitable for production."
+}
