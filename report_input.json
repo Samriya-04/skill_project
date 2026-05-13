@@ -1,0 +1,26 @@
+{
+  "title": "Weekly Status Report",
+  "author": "Aman Samriya",
+  "highlights": [
+    "Finalized HowFixed onboarding guide",
+    "Completed Workstream-2 pain point analysis"
+  ],
+  "progress": [
+    "Reviewed agent UI flows",
+    "Interviewed 4 engineers for feedback",
+    "Built Excel + Email skills in Copilot CLI"
+  ],
+  "blockers": [
+    "Limited access to ICM dataset",
+    "Pending mentor feedback"
+  ],
+  "next_week": [
+    "Synthesize engineer interviews",
+    "Draft user research report",
+    "Build incident classifier skill"
+  ],
+  "asks": [
+    "Mentor review of pain point document",
+    "Access to anonymized ICM samples"
+  ]
+}
