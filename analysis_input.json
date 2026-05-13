@@ -1,0 +1,14 @@
+{
+  "title": "Recursive Fibonacci Analysis",
+  "what_it_does": "Calculates Fibonacci using recursion",
+  "why_it_exists": "Educational example of recursion",
+  "strengths": ["Simple", "Readable"],
+  "weaknesses": ["Slow", "Repeated computation"],
+  "hidden_issues": ["Stack overflow risk"],
+  "risks": ["Poor performance in production"],
+  "scalability": "Does not scale beyond small inputs",
+  "edge_cases": ["Negative input not handled"],
+  "improvements": ["Memoization", "Iterative approach"],
+  "pm_insights": ["Poor UX for large inputs"],
+  "summary": "Good for learning, not production-ready"
+}
