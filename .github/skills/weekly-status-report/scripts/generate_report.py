@@ -54,16 +54,52 @@ def build_styles():
         bulletIndent=0,
         spaceAfter=2,
     ))
+    # Box header style (white text on colored header)
+    styles.add(ParagraphStyle(
+        name="BoxHeader",
+        fontName="Helvetica-Bold",
+        fontSize=12,
+        leading=14,
+        textColor=colors.white,
+        leftIndent=0,
+        spaceAfter=0,
+    ))
+    styles.add(ParagraphStyle(
+        name="BoxContent",
+        fontName="Helvetica",
+        fontSize=11,
+        leading=16,
+        textColor=MS_DARK,
+        leftIndent=0,
+        spaceAfter=0,
+    ))
     return styles
 
 
 def add_section(elements, styles, title, items):
-    elements.append(Paragraph(title, styles["MSHeader"]))
+    # Build a boxed section with a colored header and light background content
+    if items is None:
+        items = []
+    header_para = Paragraph(title, styles["BoxHeader"])
     if not items:
-        elements.append(Paragraph("• N/A", styles["MSBullet"]))
-        return
-    for item in items:
-        elements.append(Paragraph(f"• {item}", styles["MSBullet"]))
+        content_html = "• N/A"
+    else:
+        content_html = "<br/>".join([f"• {item}" for item in items])
+    content_para = Paragraph(content_html, styles["BoxContent"]) 
+    tbl = Table([[header_para], [content_para]], colWidths=[17 * cm])
+    tbl.setStyle(TableStyle([
+        ("BOX", (0, 0), (-1, -1), 1, MS_BLUE),
+        ("BACKGROUND", (0, 0), (-1, 0), MS_BLUE),
+        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+        ("BACKGROUND", (0, 1), (-1, 1), MS_LIGHT),
+        ("LEFTPADDING", (0, 0), (-1, -1), 8),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+        ("TOPPADDING", (0, 0), (-1, -1), 6),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+    ]))
+    elements.append(Spacer(1, 8))
+    elements.append(tbl)
+    elements.append(Spacer(1, 8))
 
 
 def main():

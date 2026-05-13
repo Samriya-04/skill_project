@@ -1,0 +1,11 @@
+{
+  "project_name": "folder_watcher_emailer",
+  "description": "A Python tool that watches a folder and sends an email when a new file appears.",
+  "language": "python",
+  "dependencies": ["watchdog"],
+  "files": {
+    "main.py": "from watchdog.observers import Observer\nfrom watchdog.events import FileSystemEventHandler\nimport time\n\nclass Handler(FileSystemEventHandler):\n    def on_created(self, event):\n        print(f\"New file detected: {event.src_path}\")\n        # TODO: send email here\n\nif __name__ == \"__main__\":\n    path = \".\"\n    observer = Observer()\n    observer.schedule(Handler(), path, recursive=False)\n    observer.start()\n    try:\n        while True:\n            time.sleep(1)\n    except KeyboardInterrupt:\n        observer.stop()\n    observer.join()\n",
+    "README.md": "# Folder Watcher Emailer\n\nWatches a folder and sends email alerts on new files.\n\n## Run\npython main.py",
+    "requirements.txt": "watchdog"
+  }
+}
